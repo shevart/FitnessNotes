@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-        <item android:id="@+id/action_main_dash"
-            android:title="@string/dashboard"
-            android:icon="@drawable/wrapper_ic_dashboard_white" />
+    <item
+        android:id="@+id/action_main_dash"
+        android:icon="@drawable/wrapper_ic_dashboard_white"
+        android:title="@string/dashboard" />
 
-        <item android:id="@+id/action_trainings"
-            android:title="@string/trainings"
-            android:icon="@drawable/wrapper_ic_view_list" />
+    <item
+        android:id="@+id/action_trainings"
+        android:icon="@drawable/wrapper_ic_view_list"
+        android:title="@string/trainings" />
 
-        <item android:id="@+id/action_inventories"
-            android:title="@string/inventories"
-            android:icon="@drawable/wrapper_ic_fitness_center_white" />
+    <item
+        android:id="@+id/action_inventories"
+        android:icon="@drawable/wrapper_ic_fitness_center_white"
+        android:title="@string/inventories" />
 </menu>
