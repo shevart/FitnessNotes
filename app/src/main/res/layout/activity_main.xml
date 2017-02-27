@@ -7,20 +7,11 @@
     android:orientation="vertical"
     tools:context="com.shevart.fitnessnotes.ui.MainActivity">
 
-    <LinearLayout
+    <FrameLayout
+        android:id="@+id/flMainContainer"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Hello World!" />
+        android:layout_weight="1"/>
 
-    </LinearLayout>
-
-
-    <include
-        layout="@layout/element_main_dashboard_bottom_nav_view"/>
-
-
+    <include layout="@layout/element_main_dashboard_bottom_nav_view" />
 </LinearLayout>
