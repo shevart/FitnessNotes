@@ -9,9 +9,9 @@ import android.support.v4.app.FragmentTransaction;
 public final class ActivityUtils {
     private ActivityUtils() {}
 
-    public static void addFragment(@NonNull FragmentManager fragmentManager,
-                                   @NonNull Fragment fragment,
-                                   @IdRes int containerId) {
+    public static void replaceFragment(@NonNull FragmentManager fragmentManager,
+                                       @NonNull Fragment fragment,
+                                       @IdRes int containerId) {
         final FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
         fragmentTransaction.replace(containerId, fragment, null);
         fragmentTransaction.commitAllowingStateLoss();

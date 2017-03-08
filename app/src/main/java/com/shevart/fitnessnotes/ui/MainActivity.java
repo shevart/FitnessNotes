@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import com.shevart.fitnessnotes.R;
 import com.shevart.fitnessnotes.ui.base.BaseActivity;
 import com.shevart.fitnessnotes.ui.dashboard.MainDashboardFragment;
+import com.shevart.fitnessnotes.ui.inventory.InventoriesFragment;
+import com.shevart.fitnessnotes.ui.trainings.TrainingsFragment;
 import com.shevart.fitnessnotes.utils.ActivityUtils;
 
 import butterknife.BindView;
@@ -28,6 +30,13 @@ public class MainActivity extends BaseActivity {
                 switch (item.getItemId()) {
                     case R.id.action_main_dash:
                         showDashboard();
+                        break;
+                    case R.id.action_trainings:
+                        showTrainings();
+                        break;
+                    case R.id.action_inventories:
+                        showInventories();
+                        break;
                 }
                 return true;
             }
@@ -35,8 +44,17 @@ public class MainActivity extends BaseActivity {
     }
 
     private void showDashboard() {
-        ActivityUtils.addFragment(getSupportFragmentManager(),
-                new MainDashboardFragment(),
+        ActivityUtils.replaceFragment(getSupportFragmentManager(), new MainDashboardFragment(),
+                R.id.flMainContainer);
+    }
+
+    private void showTrainings() {
+        ActivityUtils.replaceFragment(getSupportFragmentManager(), new TrainingsFragment(),
+                R.id.flMainContainer);
+    }
+
+    private void showInventories() {
+        ActivityUtils.replaceFragment(getSupportFragmentManager(), new InventoriesFragment(),
                 R.id.flMainContainer);
     }
 }
