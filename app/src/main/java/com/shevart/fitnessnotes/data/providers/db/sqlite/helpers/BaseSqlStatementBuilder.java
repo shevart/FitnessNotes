@@ -4,7 +4,9 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.support.annotation.NonNull;
 
-@SuppressWarnings("WeakerAccess")
+import static com.shevart.fitnessnotes.utils.Predications.checkNonNullOrEmpty;
+
+@SuppressWarnings({"WeakerAccess", "unused"})
 abstract class BaseSqlStatementBuilder extends BaseBuilder {
     final static String VALUES = " VALUES ";
     final static String SYMBOL_QUESTION_MARK = " ? ";
@@ -19,12 +21,20 @@ abstract class BaseSqlStatementBuilder extends BaseBuilder {
         return database.compileStatement(sqlStringBuilder.toString());
     }
 
+    protected void addColumnToStatement(@NonNull String columnName) {
+        checkNonNullOrEmpty(columnName);
+        sqlStringBuilder.append(columnName);
+        sqlStringBuilder.append(COMMA);
+        columnCount++;
+    }
+
     private void addQuestionMarksPart() {
         sqlStringBuilder.append(OPEN_BRACKET);
         for (int i = 0; i <columnCount; i++) {
             sqlStringBuilder.append(SYMBOL_QUESTION_MARK);
             sqlStringBuilder.append(COMMA);
         }
+        removeLastComma();
         sqlStringBuilder.append(CLOSE_BRACKET);
     }
 }

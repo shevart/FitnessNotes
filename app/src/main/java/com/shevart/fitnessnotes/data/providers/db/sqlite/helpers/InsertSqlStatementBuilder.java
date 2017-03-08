@@ -6,7 +6,6 @@ import static com.shevart.fitnessnotes.utils.Predications.checkNonNullOrEmpty;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public class InsertSqlStatementBuilder extends BaseSqlStatementBuilder {
-    //  "INSERT INTO table_name (column_1, column_2) VALUES (?, ?)";
     private final static String INSERT_INTO = "INSERT_INTO ";
 
     private InsertSqlStatementBuilder(@NonNull String tableName) {
@@ -22,11 +21,7 @@ public class InsertSqlStatementBuilder extends BaseSqlStatementBuilder {
     }
 
     public InsertSqlStatementBuilder addColumn(@NonNull String columnName) {
-        checkNonNullOrEmpty(columnName);
-        sqlStringBuilder.append(columnName);
-        sqlStringBuilder.append(COMMA);
-        columnCount++;
+        addColumnToStatement(columnName);
         return this;
     }
-
 }
