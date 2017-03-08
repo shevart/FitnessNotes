@@ -1,8 +1,10 @@
 package com.shevart.fitnessnotes.data.providers.db.sqlite.helpers;
 
 @SuppressWarnings("WeakerAccess")
-class BaseBuilder {
+abstract class BaseBuilder {
     static final String COMMA = ",";
+    static final String OPEN_BRACKET = " (";
+    static final String CLOSE_BRACKET = ")";
     protected StringBuilder sqlStringBuilder;
 
     void removeLastComma() {

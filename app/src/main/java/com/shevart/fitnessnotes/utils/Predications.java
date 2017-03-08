@@ -8,4 +8,10 @@ public class Predications {
         return object;
     }
 
+    public static String checkNonNullOrEmpty(String str) {
+        if (str == null) throw new NullPointerException();
+        if (str.isEmpty()) throw new RuntimeException("The string is empty!");
+        return str;
+    }
+
 }

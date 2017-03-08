@@ -2,6 +2,8 @@ package com.shevart.fitnessnotes.data.providers.db.sqlite.helpers;
 
 import android.support.annotation.NonNull;
 
+import static com.shevart.fitnessnotes.utils.Predications.checkNonNullOrEmpty;
+
 @SuppressWarnings({"WeakerAccess", "unused"})
 public final class CreateTableBuilder extends BaseBuilder {
     private static final String CREATE_TABLE = "CREATE TABLE ";
@@ -9,10 +11,11 @@ public final class CreateTableBuilder extends BaseBuilder {
 
 
     private CreateTableBuilder(@NonNull final String tableName) {
+        checkNonNullOrEmpty(tableName);
         sqlStringBuilder = new StringBuilder();
         sqlStringBuilder.append(CREATE_TABLE);
         sqlStringBuilder.append(tableName);
-        sqlStringBuilder.append("(");
+        sqlStringBuilder.append(OPEN_BRACKET);
     }
 
     public static CreateTableBuilder createTable(@NonNull String tableName) {
@@ -52,7 +55,7 @@ public final class CreateTableBuilder extends BaseBuilder {
 
     public String toSql() {
         removeLastComma();
-        sqlStringBuilder.append(")");
+        sqlStringBuilder.append(CLOSE_BRACKET);
         return sqlStringBuilder.toString();
     }
 }
