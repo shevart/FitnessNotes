@@ -1,5 +1,6 @@
 package com.shevart.fitnessnotes.data.providers.db.sqlite.contract;
 
+import com.shevart.fitnessnotes.data.providers.db.sqlite.CreateTableBuilder;
 import com.shevart.fitnessnotes.data.providers.db.sqlite.dao.BaseDao;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
