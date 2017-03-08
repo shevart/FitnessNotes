@@ -4,6 +4,8 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import com.shevart.fitnessnotes.data.providers.db.sqlite.contract.UserContract;
+
 
 public class OpenHelper extends SQLiteOpenHelper {
     private static final String NAME = "FitnessNotes.sqlite";
@@ -15,7 +17,7 @@ public class OpenHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-
+        db.execSQL(UserContract.CREATE_SCRIPT);
     }
 
     @Override
