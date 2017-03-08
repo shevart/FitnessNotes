@@ -8,7 +8,16 @@ public class BaseDao {
     protected static final String COMMA = ",";
     protected static final String CREATE_TABLE = "CREATE TABLE ";
 
+    protected static final class SqlTypes {
+        protected static final String INTEGER_PRIMARY_KEY = " INTEGER PRIMARY KEY ";
+        protected static final String INTEGER = " INTEGER ";
+        protected static final String REAL = " REAL ";
+        protected static final String TEXT = " TEXT ";
+    }
+
+
     protected static final class CreateTableBuilder {
+        private boolean isPrimaryKeyAlreadyDefined = false;
         private StringBuilder sqlStringBuilder;
 
         private CreateTableBuilder(@NonNull final String tableName) {
@@ -22,7 +31,33 @@ public class BaseDao {
             return new CreateTableBuilder(tableName);
         }
 
-        public String getSql() {
+        public CreateTableBuilder addIntegerPrimaryKeyColumn(@NonNull String columnName) {
+            if (isPrimaryKeyAlreadyDefined) throw new RuntimeException("Primary key cannot be more than one!");
+            isPrimaryKeyAlreadyDefined = true;
+            sqlStringBuilder.append(columnName);
+            sqlStringBuilder.append(SqlTypes.INTEGER_PRIMARY_KEY);
+            return this;
+        }
+
+        public CreateTableBuilder addIntegerColumn(@NonNull String columnName) {
+            sqlStringBuilder.append(columnName);
+            sqlStringBuilder.append(SqlTypes.INTEGER);
+            return this;
+        }
+
+        public CreateTableBuilder addTextColumn(@NonNull String columnName) {
+            sqlStringBuilder.append(columnName);
+            sqlStringBuilder.append(SqlTypes.TEXT);
+            return this;
+        }
+
+        public CreateTableBuilder addRealColumn(@NonNull String columnName) {
+            sqlStringBuilder.append(columnName);
+            sqlStringBuilder.append(SqlTypes.REAL);
+            return this;
+        }
+
+        public String toSql() {
             sqlStringBuilder.append(")");
             return sqlStringBuilder.toString();
         }

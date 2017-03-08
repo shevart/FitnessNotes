@@ -10,12 +10,18 @@ public class UserContract extends BaseDao {
     public static final String WEIGHT = "weight";
     public static final String HEIGHT = "height";
 
-    public static final String CREATE_SCRIPT = "CREATE TABLE " + TABLE_NAME + "(" +
-            ID + " INTEGER PRIMARY KEY, " +
-            NAME + " TEXT, " +
-            WEIGHT + " REAL," +
-            HEIGHT + " INTEGER " +
-            ");";
+//    public static final String CREATE_SCRIPT = "CREATE TABLE " + TABLE_NAME + "(" +
+//            ID + " INTEGER PRIMARY KEY, " +
+//            NAME + " TEXT, " +
+//            WEIGHT + " REAL," +
+//            HEIGHT + " INTEGER " +
+//            ");";
+    public static final String CREATE_SCRIPT = CreateTableBuilder.createTable(TABLE_NAME)
+        .addIntegerPrimaryKeyColumn(ID)
+        .addTextColumn(NAME)
+        .addRealColumn(WEIGHT)
+        .addIntegerColumn(HEIGHT)
+        .toSql();
 
     public static final String INSERT_SCRIPT = "INSERT INTO " + TABLE_NAME + "(" +
             ")";
