@@ -21,6 +21,14 @@ abstract class BaseSqlStatementBuilder extends BaseBuilder {
         return database.compileStatement(sqlStringBuilder.toString());
     }
 
+    public String createSQSqLiteStatement() {
+        removeLastComma();
+        sqlStringBuilder.append(CLOSE_BRACKET);
+        sqlStringBuilder.append(VALUES);
+        addQuestionMarksPart();
+        return sqlStringBuilder.toString();
+    }
+
     protected void addColumnToStatement(@NonNull String columnName) {
         checkNonNullOrEmpty(columnName);
         sqlStringBuilder.append(columnName);
