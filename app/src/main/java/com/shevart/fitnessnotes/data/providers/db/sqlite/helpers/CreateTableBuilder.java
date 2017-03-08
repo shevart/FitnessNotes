@@ -1,13 +1,12 @@
-package com.shevart.fitnessnotes.data.providers.db.sqlite;
+package com.shevart.fitnessnotes.data.providers.db.sqlite.helpers;
 
 import android.support.annotation.NonNull;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
-public final class CreateTableBuilder {
-    private static final String COMMA = ",";
+public final class CreateTableBuilder extends BaseBuilder {
     private static final String CREATE_TABLE = "CREATE TABLE ";
     private boolean isPrimaryKeyAlreadyDefined = false;
-    private StringBuilder sqlStringBuilder;
+
 
     private CreateTableBuilder(@NonNull final String tableName) {
         sqlStringBuilder = new StringBuilder();
@@ -55,9 +54,5 @@ public final class CreateTableBuilder {
         removeLastComma();
         sqlStringBuilder.append(")");
         return sqlStringBuilder.toString();
-    }
-
-    private void removeLastComma() {
-        sqlStringBuilder.replace(sqlStringBuilder.lastIndexOf(COMMA), sqlStringBuilder.length(), "");
     }
 }
