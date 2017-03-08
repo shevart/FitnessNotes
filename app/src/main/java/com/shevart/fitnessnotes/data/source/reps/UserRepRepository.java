@@ -7,7 +7,7 @@ import com.shevart.fitnessnotes.data.source.DataSource;
 
 
 public class UserRepRepository implements DataSource.UserRep {
-    
+
     @Override
     public User getUser() {
         return null;
