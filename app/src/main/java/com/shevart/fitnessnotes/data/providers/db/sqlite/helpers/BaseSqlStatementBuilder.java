@@ -4,7 +4,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.support.annotation.NonNull;
 
-import static com.shevart.fitnessnotes.utils.Predications.checkNonNullOrEmpty;
+import static com.shevart.fitnessnotes.utils.Predicates.checkNonNullOrEmpty;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 abstract class BaseSqlStatementBuilder extends BaseBuilder {

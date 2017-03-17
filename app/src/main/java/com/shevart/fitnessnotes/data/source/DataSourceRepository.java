@@ -6,7 +6,7 @@ import com.shevart.fitnessnotes.data.providers.db.DataBase;
 import com.shevart.fitnessnotes.data.providers.sharedprefs.SharedPrefs;
 import com.shevart.fitnessnotes.data.source.reps.UserRepRepository;
 
-import static com.shevart.fitnessnotes.utils.Predications.checkNonNull;
+import static com.shevart.fitnessnotes.utils.Predicates.checkNonNull;
 
 public class DataSourceRepository implements DataSource, DataProvidersBridge {
     private DataBase dataBase;

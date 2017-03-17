@@ -2,7 +2,7 @@ package com.shevart.fitnessnotes.data.providers.db.sqlite.helpers;
 
 import android.support.annotation.NonNull;
 
-import static com.shevart.fitnessnotes.utils.Predications.checkNonNullOrEmpty;
+import static com.shevart.fitnessnotes.utils.Predicates.checkNonNullOrEmpty;
 
 @SuppressWarnings({"WeakerAccess", "unused"})
 public final class CreateTableBuilder extends BaseBuilder {
