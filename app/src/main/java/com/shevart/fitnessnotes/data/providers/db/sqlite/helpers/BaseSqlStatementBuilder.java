@@ -11,7 +11,7 @@ abstract class BaseSqlStatementBuilder extends BaseBuilder {
     final static String VALUES = " VALUES ";
     final static String SYMBOL_QUESTION_MARK = " ? ";
 
-    protected int columnCount = 0;
+    private int columnCount = 0;
 
     public SQLiteStatement createSQSqLiteStatement(@NonNull SQLiteDatabase database) {
         removeLastComma();
